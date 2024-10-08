@@ -83,17 +83,17 @@ const App = () => {
       description: "A roommate matching app that allows people to find roommates and provides housing options nearby.",
       details: "Begara is a roommate matching app that uses an AI model developed in Python to connect individuals seeking roommates and housing options nearby. It features live chat functionality through live socket implementation and is built with Flutter for the front end, Node.js for the back end, and a MySQL database."
     },
-    {
-      id: 3,
-      title: "Chat App",
-      images: [
-        "https://via.placeholder.com/500x300?text=Chat+App+Image+1",
-        "https://via.placeholder.com/500x300?text=Chat+App+Image+2",
-        "https://via.placeholder.com/500x300?text=Chat+App+Image+3"
-      ],
-      description: "A simple chat application that supports real-time chat, video/audio calls, and file sharing.",
-      details: "This chat app enables users to communicate via text, voice, and video while sharing small files. Built with React for the front end and Node.js for the back end, it utilizes socket.io and WebRTC to support live chat and video streaming."
-    },
+    // {
+    //   id: 3,
+    //   title: "Chat App",
+    //   images: [
+    //     "https://via.placeholder.com/500x300?text=Chat+App+Image+1",
+    //     "https://via.placeholder.com/500x300?text=Chat+App+Image+2",
+    //     "https://via.placeholder.com/500x300?text=Chat+App+Image+3"
+    //   ],
+    //   description: "A simple chat application that supports real-time chat, video/audio calls, and file sharing.",
+    //   details: "This chat app enables users to communicate via text, voice, and video while sharing small files. Built with React for the front end and Node.js for the back end, it utilizes socket.io and WebRTC to support live chat and video streaming."
+    // },
     {
       id: 4,
       title: "Resume Producer",
@@ -176,15 +176,15 @@ const App = () => {
             <h1 className="section-title">Hi there</h1>
             <p className="section-body">I’m Yared, a Full Stack Developer specializing in creating dynamic web and mobile applications..</p>
             <div className="contact-icons">
-              <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
+              <a href="https://www.linkedin.com/in/yared-namssi-135182316/" target="_blank" rel="noreferrer">
                 <img src={linkedinLogo} alt="LinkedIn" />
               </a>
-              <a href="https://github.com/" target="_blank" rel="noreferrer">
+              <a href="https://github.com/yadishman" target="_blank" rel="noreferrer">
                 <img src={gitHubLogo} alt="GitHub" />
               </a>
-              <a href="mailto:example@gmail.com">
+              {/* <a href="mailto:example@gmail.com">
                 <img src={gmailLogo} alt="Gmail" />
-              </a>
+              </a> */}
             </div>
           </div>
           <div className="home-photo">
@@ -291,10 +291,10 @@ const App = () => {
       <footer className="footer">
         <div className="footer-socials">
 
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/yared-namssi-135182316/" target="_blank" rel="noopener noreferrer">
             <img src={linkedinLogo} alt="LinkedIn" />
           </a>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/yadishman" target="_blank" rel="noopener noreferrer">
             <img src={gitHubLogo} alt="GitHub" />
           </a>
         </div>
