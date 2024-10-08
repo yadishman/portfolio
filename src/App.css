@@ -1,38 +1,846 @@
+/* General body styles */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: rgb(34, 34, 59);
+  /* Dark blue background */
+  color: #ffffff;
+  scroll-behavior: smooth;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Navigation bar styles */
+.hamburger {
+  display: none;
+  /* Hidden by default */
+  font-size: 30px;
+  /* Size of the hamburger icon */
+  color: white;
+  /* Color of the icon */
+  cursor: pointer;
+  /* Change cursor on hover */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+nav ul {
+
+  list-style-type: none;
+  margin: 0;
+  padding: 25px 0;
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  z-index: 1;
+}
+
+nav {
+  padding-right: 20px;
+  position: fixed;
+  /* Make it fixed to the viewport */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px 70px;
+  width: 95%;
+  /* Ensure it covers full width */
+  z-index: 1000;
+  /* Keep it above other elements */
+}
+
+.scrolled {
+  background-color: goldenrod;
+}
+
+nav .logo {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 30px;
+  /* Make YN larger */
+  font-weight: bold;
+  /* Make YN bold */
+  color: white;
+  /* Change the color as needed */
+}
+
+nav li {
+  margin: 0 20px;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1em;
+  padding: 5px;
+  transition: border-bottom 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+  border-bottom: 2px solid #ffffff;
+  color: #1abc9c;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+
+
+  nav ul {
+    margin-top: 5px;
+
+    border: 1px solid rgb(34, 34, 59);
+    flex-direction: column;
+    align-items: start;
+    display: none;
+    /* Hide the menu by default */
+    position: absolute;
+    /* Position it below the hamburger icon */
+    top: 60px;
+    /* Adjust based on your nav height */
+    right: 10px;
+    /* Align it to the right */
+    background-color: goldenrod;
+    /* Background color for the dropdown */
+    width: 70%;
+    /* Full width */
+    transition: max-height 5s ease;
+    /* Add transition for max-height */
+    overflow: hidden;
+    /* Hide overflow when closed */
+    max-height: 0;
+    /* Start closed */
+  }
+
+  nav ul.show {
+    display: flex;
+    /* Show the menu when toggled */
+    max-height: 500px;
+    /* Max height when open (adjust as needed) */
+  }
+
+  .hamburger {
+    display: block;
+    /* Show the hamburger icon */
+  }
+
+  nav {
+    right: 1px;
+    justify-content: space-between;
+    width: 75%;
+    z-index: 1000;
+  }
+
+  nav li {
+    margin: 10px 0;
+    /* Spacing for list items */
   }
 }
 
-.App-header {
-  background-color: #282c34;
+/* Section styles */
+.section {
+  position: relative;
+  padding: 120px 20px;
   min-height: 100vh;
+  background-color: rgb(34, 34, 59);
+  /* Darker blue for sections */
+}
+
+.section-title {
+  font-size: 3em;
+  background: linear-gradient(to right, white, goldenrod);
+  /* Gradient colors */
+  -webkit-background-clip: text;
+  /* Clip the background to the text (Chrome, Safari) */
+  background-clip: text;
+  /* Clip the background to the text (Firefox) */
+  -webkit-text-fill-color: transparent;
+  /* Make text color transparent (Chrome, Safari) */
+  color: transparent;
+}
+
+.section-body {
+  font-size: 1.4em;
+  color: #c0c0c0;
+}
+
+/* Contact icons */
+.contact-icons {
+  margin-top: 20px;
+}
+
+.contact-icons img {
+  width: 40px;
+  height: 40px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+/* Project cards */
+.popup {
+
+  margin-top: 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(218, 21, 21, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: openPage 0.5s ease;
+}
+
+.popup-content {
+  color: red;
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 10px;
+  /* Reduced padding */
+  width: 70%;
+  /* Adjusted width */
+  max-width: 500px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  /* Smooth transition */
+}
+
+@keyframes openPage {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+}
+.card-title{
+  background: linear-gradient(to right, white, goldenrod); /* Gradient colors */
+    -webkit-background-clip: text; /* Clip the background to the text (Chrome, Safari) */
+    background-clip: text; /* Clip the background to the text (Firefox) */
+    -webkit-text-fill-color: transparent; /* Make text color transparent (Chrome, Safari) */
+    color: transparent;
+}
+
+
+.project-images {
+  position: relative;
+  height: 300px;
+  /* Reduced height */
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.popup-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: slide 12s infinite;
+}
+
+h2 {
+  margin-top: 10px;
+  font-size: 22px;
+  text-align: center;
+  color: #333;
+}
+
+p {
+  margin-top: 5px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: white;
+  text-align: center;
+}
+
+.previous-section-description {
+  font-size: 1.4em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* Choose a beautiful font */
+  line-height: 1.6;
+  /* Improve readability with line height */
+  color: #c0c0c0;
+  /* Dark gray color for contrast */
+  margin-bottom: 60px;
+  /* Add margin below the paragraph */
+  text-align: justify;
+  /* Justify text for a neat look */
+  padding: 10px;
+  /* Add some padding for better spacing */
+}
+
+/* About Me Section */
+/* Targeting the #about section specifically */
+#about {
+  display: flex;
+  flex-direction: column;
+  /* Stack title on top */
+  align-items: center;
+  /* Center title */
+  padding: 20px;
+  /* Add padding around the section */
+}
+
+#about .section-title {
+  margin-bottom: 20px;
+  /* Space between title and content */
+  background: linear-gradient(to right, white, goldenrod);
+  /* Gradient colors */
+  -webkit-background-clip: text;
+  /* Clip the background to the text (Chrome, Safari) */
+  background-clip: text;
+  /* Clip the background to the text (Firefox) */
+  -webkit-text-fill-color: transparent;
+  /* Make text color transparent (Chrome, Safari) */
+  color: transparent;
+}
+
+#about .about-content {
+  display: flex;
+  align-items: flex-start;
+  /* Align items to the top */
+  width: 100%;
+  /* Full width for the content */
+  max-width: 1200px;
+  /* Optional: Set max width for larger screens */
+}
+
+#about .section-body {
+  flex: 1;
+  /* Take available space on the left */
+  text-align: left;
+  /* Align text to the left */
+  padding-right: 20px;
+  /* Add space between text and image */
+}
+
+#about .about-image {
+  width: 200px;
+  /* Set a fixed width for the image */
+  height: 200px;
+  /* Maintain aspect ratio */
+  border: 2px solid goldenrod;
+  /* Golden border */
+  border-radius: 5px;
+  /* Optional: Add slight rounding to corners */
+}
+
+/* Adjust layout for smaller screens */
+@media (max-width: 768px) {
+  #about {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #about .section-body {
+    padding-right: 0;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    margin-right: 3px;
+  }
+
+  #about .about-image {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+/* Popup styles */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.popup-content {
+  background-color: #444444;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 800px;
+  width: 90%;
+}
+
+.popup-slider {
+  position: relative;
+  overflow: hidden;
+  height: 400px;
+  border-radius: 10px;
+}
+
+.popup-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+/* Stylish scrollbar */
+.popup-slider::-webkit-scrollbar {
+  width: 8px;
+}
+
+.popup-slider::-webkit-scrollbar-thumb {
+  background: #777;
+  border-radius: 10px;
+}
+
+.popup-slider::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.popup-description {
+  color: #c0c0c0;
+  font-size: 1.2em;
+}
+
+/* Home Section */
+
+
+.section::after {
+  content: '';
+  display: block;
+  height: 2px;
+  /* Adjust the thickness of the line here */
+  background: linear-gradient(to right, goldenrod, lightblue);
+  /* Gradient from cyan to dark blue */
+  width: 100%;
+  /* Full width */
+  position: absolute;
+  bottom: 0;
+  /* Aligns the line to the bottom */
+  left: 0;
+  /* Aligns the line to the left */
+}
+
+.home-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  height: 100vh;
+  /* Full viewport height */
+}
+
+.home-text {
+  flex: 2;
+  /* Equal width for text section */
+  padding-right: 40px;
+}
+
+.home-photo {
+  flex: 2;
+  height: 100%;
+  /* Ensure the photo div takes up the full height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.home-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Ensures the image covers the entire div while maintaining aspect ratio */
+  border-radius: 0;
+  /* No circular styling */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  /* Subtle shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.home-photo img:hover {
+  transform: scale(1.05);
+  /* Slight zoom on hover */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  /* Increased shadow on hover */
+}
+
+.contact-icons img {
+  width: 30px;
+  margin: 0 10px;
+  transition: transform 0.3s ease;
+}
+
+.contact-icons img:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .home-content {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+  }
+
+  .home-photo {
+    height: auto;
+    /* Adjust for smaller screens */
+  }
+
+  .home-photo img {
+    width: 100%;
+    height: auto;
+    /* Maintain aspect ratio for smaller screens */
+    margin-top: 20px;
+  }
+}
+
+/* Fade-in effect */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 1.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* General Section Styles */
+.section {
+  padding: 50px 0;
+  text-align: center;
+}
+
+/* Navigation Bar */
+.navbar {
+  background-color: #1e1e1e;
+  padding: 15px 0;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar li {
+  margin: 0 20px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+/* Home Section */
+#home {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.social-links img {
+  width: 40px;
+  margin: 10px;
+}
+
+/* Skills Section */
+.skills-section {
+  padding: 20px;
+}
+
+.skills-description {
+  font-size: 1.4em;
+  color: #c0c0c0;
+  margin-right: 3px;
+}
+
+.skills-title {
+  background: linear-gradient(to right, white, goldenrod);
+  /* Gradient colors */
+  -webkit-background-clip: text;
+  /* Clip the background to the text (Chrome, Safari) */
+  background-clip: text;
+  /* Clip the background to the text (Firefox) */
+  -webkit-text-fill-color: transparent;
+  /* Make text color transparent (Chrome, Safari) */
+  color: transparent;
+  font-size: 2.5em;
+  text-align: center;
+}
+
+.skills-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skills-text {
+  flex: 1;
+}
+
+.skills-image {
+  margin-left: 30px;
+  height: 35vh;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  border: 2px solid goldenrod;
+  margin-bottom: 10vh;
+}
+
+.skills-image img {
+  width: 100%;
+  height: auto;
+
+}
+
+.skills-category {
+  margin-bottom: 30px;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  gap: 20px;
+}
+
+.skill {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  text-align: center;
+  width: 50px;
+  /* Ensures equal size for all cards */
+  height: 70px;
+  /* Ensures equal height */
+  padding: 15px;
+  background-color: rgb(217, 230, 235);
+  /* Light color to contrast dark blue background */
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  /* Adds a subtle shadow effect */
+  transition: transform 0.3s ease;
+  /* Adds a slight hover animation */
+  margin-bottom: 50px;
+}
+
+.skill:hover {
+  transform: scale(1.05);
+  /* Slightly enlarges on hover */
+}
+
+.skill img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.skill p {
+  margin: 0;
+  font-size: 1rem;
+  color: #1a1a1a;
+  /* Dark text for readability */
+}
+
+/* Styling the specific h3 in skills-category */
+#skills-title {
+  font-size: 1.6rem;
+  color: goldenrod;
+  /* Light color to contrast dark blue background */
+  text-align: left;
+  /* Align text to the left */
+  border-bottom: 5px solid transparent;
+  /* Make border transparent first */
+  border-image: linear-gradient(to right, goldenrod, lightblue) 1;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+  width: 50%;
+  /* Set the width for the border */
+  border-bottom: 2px solid goldenrod;
+  /* Underline effect */
+}
+
+
+@media (max-width: 768px) {
+  .skills-title {
+    font-size: 2em;
+    /* Adjust title size */
+  }
+
+  .skills-content {
+    flex-direction: column;
+    /* Stack content on small screens */
+    align-items: flex-start;
+    /* Align text to the left */
+  }
+
+  .skills-image {
+    margin-top: 20px;
+    /* Add space above image on small screens */
+  }
+
+  .skills-container {
+    justify-content: center;
+    /* Center items on smaller screens */
+  }
+
+  .skill img {
+    width: 50px;
+    /* Slightly smaller icons */
+    height: 50px;
+  }
+}
+
+/* Previous Work Section */
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* Or center for equal spacing */
+}
+
+.project {
+  position: relative;
+  width: calc(45% - 10px);
+  /* Make the cards smaller */
+  height: 250px;
+  /* Adjust height for smaller cards */
+  margin: 5px;
+  /* Adjust spacing between cards */
+  overflow: hidden;
+  border-radius: 20px;
+  /* Rounded corners */
+  transform: rotate(5deg);
+  /* Tilt effect */
+  transition: transform 0.3s;
+  padding: 10px;
+  /* Add padding */
+}
+
+.project:hover {
+  transform: scale(1.05) rotate(5deg);
+  /* Slight scale on hover */
+}
+
+.project-image-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* Hide overflow for the image */
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  /* Cover the container */
+  object-position: top;
+  filter: blur(0);
+  /* No blur by default */
+  transition: filter 0.3s ease;
+}
+
+
+.project:hover .project-image {
+  filter: blur(4px);
+  /* Blur effect on hover */
+}
+
+h3 {
+  position: absolute;
+  bottom: 10px;
+  /* Adjust to position title */
+  left: 50%;
+  transform: translateX(-50%);
   color: white;
+  /* Adjust color as needed */
+  opacity: 0;
+  /* Hide title by default */
+  transition: opacity 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
+.project:hover h3 {
+  opacity: 1;
+  /* Show title on hover */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Skill Bars */
+.skill-bar {
+  width: 100%;
+  /* Full width */
+  background-color: #444444;
+  /* Background color for bars */
+  border-radius: 10px;
+  /* Rounded corners */
+  overflow: hidden;
+  /* Hide overflow for inner content */
+}
+
+.skill-progress {
+  height: 20px;
+  /* Height for progress */
+  background-color: #1abc9c;
+  /* Progress color */
+  width: 0;
+  /* Start width at 0 */
+  border-radius: 10px;
+  /* Rounded corners for progress */
+  transition: width 1s;
+  /* Transition effect for growth */
+}
+
+/* footer component */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 50px;
+  background-color: goldenrod;
+  color: #fff;
+}
+
+.footer-socials a {
+  margin: 0 10px;
+}
+
+.footer-socials img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s;
+}
+
+.footer-socials img:hover {
+  transform: scale(1.1);
+}
+
+.footer-text p {
+  margin: 0;
 }
