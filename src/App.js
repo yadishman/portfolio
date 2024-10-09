@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
+import FadeIn from "./components/FadeIn";
 import gitHubLogo from "./images/gitHub.png";
 import gmailLogo from "./images/gmail.png";
 import linkedinLogo from "./images/linkedin.png";
@@ -30,6 +31,9 @@ import begaraImage8 from "./images/previousWork/begara/begara8.PNG";
 import portfolioImage1 from "./images/previousWork/portfolio/resume1.PNG";
 import portfolioImage2 from "./images/previousWork/portfolio/resume2.PNG";
 import portfolioImage3 from "./images/previousWork/portfolio/resume3.PNG";
+import chatImage1 from "./images/previousWork/chat/chat 1.PNG";
+import chatImage2 from "./images/previousWork/chat/chat 2.PNG";
+import chatImage3 from "./images/previousWork/chat/chat 3.PNG";
 import skillsImage from './images/skills.jpg';
 import introImage from './images/software 2.jpg';
 import profileImage from './images/profiles.jpg';
@@ -83,20 +87,20 @@ const App = () => {
       description: "A roommate matching app that allows people to find roommates and provides housing options nearby.",
       details: "Begara is a roommate matching app that uses an AI model developed in Python to connect individuals seeking roommates and housing options nearby. It features live chat functionality through live socket implementation and is built with Flutter for the front end, Node.js for the back end, and a MySQL database."
     },
-    // {
-    //   id: 3,
-    //   title: "Chat App",
-    //   images: [
-    //     "https://via.placeholder.com/500x300?text=Chat+App+Image+1",
-    //     "https://via.placeholder.com/500x300?text=Chat+App+Image+2",
-    //     "https://via.placeholder.com/500x300?text=Chat+App+Image+3"
-    //   ],
-    //   description: "A simple chat application that supports real-time chat, video/audio calls, and file sharing.",
-    //   details: "This chat app enables users to communicate via text, voice, and video while sharing small files. Built with React for the front end and Node.js for the back end, it utilizes socket.io and WebRTC to support live chat and video streaming."
-    // },
+    {
+      id: 3,
+      title: "Chat App",
+      images: [
+        chatImage1,
+        chatImage2,
+        chatImage3
+      ],
+      description: "A simple chat application that supports real-time chat, video/audio calls, and file sharing.",
+      details: "This chat app enables users to communicate via text, voice, and video while sharing small files. Built with React for the front end and Node.js for the back end, it utilizes socket.io and WebRTC to support live chat and video streaming."
+    },
     {
       id: 4,
-      title: "Resume Producer",
+      title: "TemplateWire",
       images: [
         portfolioImage1,
         portfolioImage2,
@@ -169,7 +173,7 @@ const App = () => {
           <li><a href="#about">About Me</a></li>
         </ul>
       </nav>
-
+      <FadeIn>
       <section id="home" className="section home">
         <div className="home-content">
           <div className="home-text">
@@ -192,7 +196,8 @@ const App = () => {
           </div>
         </div>
       </section>
-
+      </FadeIn>
+      <FadeIn>
       <section id="skills" className="skills-section section">
         <h2 className="skills-title">My Skills</h2>
         <div className="skills-content">
@@ -208,6 +213,7 @@ const App = () => {
 
         <div className="skills-category">
           <h2 id="skills-title">Languages</h2>
+          <FadeIn type="fast">
           <div className="skills-container">
             {[
               { logo: javascriptLogo, name: 'JavaScript' },
@@ -218,16 +224,20 @@ const App = () => {
               { logo: csharpLogo, name: 'C#' },
               { logo: phpLogo, name: 'PHP' },
             ].map(skill => (
+              <FadeIn>
               <div className="skill" key={skill.name}>
                 <img src={skill.logo} alt={skill.name} />
                 <p>{skill.name}</p>
               </div>
+              </FadeIn>
             ))}
           </div>
+          </FadeIn>
         </div>
 
         <div className="skills-category">
           <h2 id="skills-title">Frameworks</h2>
+          
           <div className="skills-container">
             {[
               { logo: flutterLogo, name: 'Flutter' },
@@ -237,18 +247,23 @@ const App = () => {
               { logo: flaskLogo, name: 'Flask' },
               { logo: dotnetLogo, name: '.NET' },
             ].map(skill => (
+              <FadeIn type="fast">
               <div className="skill" key={skill.name}>
                 <img src={skill.logo} alt={skill.name} />
                 <p>{skill.name}</p>
               </div>
+              </FadeIn>
             ))}
           </div>
+          
         </div>
       </section>
-
+      </FadeIn>
+      <FadeIn>
       <section id="previous-work" className="section previous-work">
         <h1 className="section-title">Previous Work</h1>
         <p className="previous-section-description">Here’s a glimpse of some of my past projects! Each one shows off what I can do and how I like to tackle challenges in software development. I’m all about quality and creativity, and I love working with different tech to make things happen.</p>
+        <FadeIn>
         <div className="projects-container">
           {projects.map((project) => (
             <div key={project.id} className="project" onClick={() => handleProjectClick(project)}>
@@ -257,9 +272,13 @@ const App = () => {
               </div>
               <h3>{project.title}</h3>
             </div>
+            
           ))}
         </div>
+        </FadeIn>
       </section>
+      </FadeIn>
+      <FadeIn>
       {selectedProject && (
         <div className="popup">
           <div className="popup-content">
@@ -272,7 +291,8 @@ const App = () => {
           </div>
         </div>
       )}
-
+      </FadeIn>
+      <FadeIn>
       <section id="about" className="section about">
         <h1 className="section-title">About Me</h1>
         <div className="about-content">
@@ -287,7 +307,7 @@ const App = () => {
           <img src={profileImage} alt="Description" className="about-image" />
         </div>
       </section>
-
+      </FadeIn>
       <footer className="footer">
         <div className="footer-socials">
 
