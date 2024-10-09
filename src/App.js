@@ -308,7 +308,7 @@ const App = () => {
         </div>
       </section>
       </FadeIn>
-      <FadeIn>
+      <FadeIn type="fast">
       <footer className="footer">
         <div className="footer-socials">
 
