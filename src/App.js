@@ -308,6 +308,7 @@ const App = () => {
         </div>
       </section>
       </FadeIn>
+      <FadeIn>
       <footer className="footer">
         <div className="footer-socials">
 
@@ -322,6 +323,7 @@ const App = () => {
           <p>&copy; 2024 Copyright Protected</p>
         </div>
       </footer>
+      </FadeIn>
     </div>
   );
 };

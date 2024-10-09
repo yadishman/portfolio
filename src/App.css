@@ -125,7 +125,7 @@ nav a:hover {
   nav {
     right: 1px;
     justify-content: space-between;
-    width: 75%;
+    width: 85%;
     z-index: 1000;
   }
 
@@ -751,6 +751,7 @@ p {
 }
 
 .project-image-container {
+  border: 2px solid goldenrod;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -780,16 +781,7 @@ h3 {
   /* Adjust to position title */
   left: 50%;
   transform: translateX(-50%);
-  background: linear-gradient(to right, rgb(34, 34, 59), goldenrod);
-  /* Gradient colors */
-  -webkit-background-clip: text;
-  /* Clip the background to the text (Chrome, Safari) */
-  background-clip: text;
-  /* Clip the background to the text (Firefox) */
-  -webkit-text-fill-color: transparent;
-  /* Make text color transparent (Chrome, Safari) */
-  color: transparent;
-  /* Adjust color as needed */
+  color: rgb(34, 34, 59);
   opacity: 0;
   /* Hide title by default */
   transition: opacity 0.3s;
